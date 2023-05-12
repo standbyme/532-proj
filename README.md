@@ -1,13 +1,37 @@
-# OP-TEE build.git
+# 532 Project
+Secure Deep Learning Inference on Trusted Execution Environment. You can run this application with a simulated one by using QEMU.
 
-This git contains makefiles etc to be able to build a full OP-TEE developer
-setup for the OP-TEE project.
+Hongyu Cai (hongyucai@umass.edu), Zixuan Huang (zixuanhuang@umass.edu)
 
-All official OP-TEE documentation has moved to http://optee.readthedocs.io. The
-pages that used to be here in this git can be found under [build] and [Device
-specific information] at he new location for the OP-TEE documentation.
+# Document
 
-// OP-TEE core maintainers
+Project Proposal: [Secure Deep Learning Inference on Trusted Execution Environment](https://drive.google.com/file/d/1VaW-ZWbQCzQ-p8APoRgQwfEfK1JPamS5/view?usp=sharing)
 
-[build]: https://optee.readthedocs.io/en/latest/building/index.html
-[Device specific information]: https://optee.readthedocs.io/en/latest/building/devices/index.html
+# Video
+
+Demo Video: [532-Project-Demo Video](https://clipchamp.com/watch/BsWHEm3A36t)
+
+# Run
+## Setup OP-TEE
+Follow the instruction in "**Get and build the solution**" to build  [the OP-TEE solution](https://optee.readthedocs.io/en/latest/building/gits/build.html#get-and-build-the-solution), and run the below command to start QEMU console.
+```
+make run
+(qemu)c
+```
+
+Follow step8 ~ step9 to do unit test. Run:
+```
+tee-supplicant -d
+xtest
+```
+
+## Build
+```
+make run
+```
+
+## Inference
+By simply typing the following command, you can do inference using a pre-trained model.
+```
+secdeep classifier predict cfg/mnist.dataset cfg/mnist_lenet.cfg models/mnist/mnist_lenet.weights  data/mnist/images/t_00009_c0.png
+```
